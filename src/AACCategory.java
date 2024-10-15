@@ -1,5 +1,6 @@
 import java.util.NoSuchElementException;
 import edu.grinnell.csc207.util.AssociativeArray;
+import edu.grinnell.csc207.util.KVPair;
 import edu.grinnell.csc207.util.NullKeyException;
 
 /**
@@ -41,6 +42,10 @@ public class AACCategory implements AACPage {
 	 * it should return an empty array
 	 */
 	public String[] getImageLocs() {
+		String[] tempImageLocs = new String[contents.getPairs().length];
+		for (int i = 0; i < contents.getPairs().length; i++) {
+			tempImageLocs[i] = contents.getPairs()[i].val;
+		}
 		return new String[] {};
 	}
 

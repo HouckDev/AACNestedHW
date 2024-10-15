@@ -187,6 +187,15 @@ public class AssociativeArray<K, V> {
     return this.size;
   } // size()
 
+
+  /**
+   * Get all pairs in this list
+   * @return pairs
+   */
+  public KVPair<K,V>[] getPairs() {
+    return pairs;
+  } //getPairs
+
   // +-----------------+---------------------------------------------
   // | Private Methods |
   // +-----------------+
