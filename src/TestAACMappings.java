@@ -27,20 +27,7 @@ public class TestAACMappings {
 
   /** Our standard configureation file. */
   static final String TEST_CONFIG =
-      """
-      one fruit
-      >a apple
-      >b banana
-      >c cherry
-      two clothes
-      >d dress
-      >e extra ear rings
-      >f fitted shirt
-      >g gloves
-      three miscellaneous
-      >h hamper
-      >i igloo
-      """;
+      "one fruit\n>a apple\n>b banana\n>c cherry\ntwo clothes\n>d dress\n>e extra ear rings\n>f fitted shirt\n>g gloves\nthree miscellaneous\n>h hamper\n>i igloo";
 
   // +---------------+-----------------------------------------------
   // | Static fields |

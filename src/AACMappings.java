@@ -10,7 +10,7 @@ import util.NullKeyException;
  * and updating the set of images that would be shown and handling
  * an interactions.
  * 
- * @author Catie Baker & YOUR NAME HERE
+ * @author Catie Baker & Paden Houck
  *
  */
 public class AACMappings implements AACPage {
