@@ -1,3 +1,7 @@
+import java.util.NoSuchElementException;
+import edu.grinnell.csc207.util.AssociativeArray;
+import edu.grinnell.csc207.util.NullKeyException;
+
 /**
  * Creates a set of mappings of an AAC that has two levels,
  * one for categories and then within each category, it has
@@ -10,7 +14,8 @@
  *
  */
 public class AACMappings implements AACPage {
-	
+	AssociativeArray<String,AACCategory> categories = new AssociativeArray<String,AACCategory>();
+	String selectedCategory;
 	/**
 	 * Creates a set of mappings for the AAC based on the provided
 	 * file. The file is read in to create categories and fill each
@@ -32,7 +37,7 @@ public class AACMappings implements AACPage {
 	 * @param filename the name of the file that stores the mapping information
 	 */
 	public AACMappings(String filename) {
-
+		selectedCategory = filename;
 	}
 	
 	/**
@@ -59,7 +64,7 @@ public class AACMappings implements AACPage {
 	 * it should return an empty array
 	 */
 	public String[] getImageLocs() {
-		return null;
+		return new String[] {};
 	}
 	
 	/**
@@ -102,7 +107,12 @@ public class AACMappings implements AACPage {
 	 * @param text the text associated with the image
 	 */
 	public void addItem(String imageLoc, String text) {
-		
+		try {
+			categories.set(imageLoc, new AACCategory(text));
+		} catch (NullKeyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 
@@ -112,7 +122,7 @@ public class AACMappings implements AACPage {
 	 * on the default category
 	 */
 	public String getCategory() {
-		return null;
+		return selectedCategory;
 	}
 
 

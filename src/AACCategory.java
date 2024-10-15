@@ -1,4 +1,6 @@
 import java.util.NoSuchElementException;
+import edu.grinnell.csc207.util.AssociativeArray;
+import edu.grinnell.csc207.util.NullKeyException;
 
 /**
  * Represents the mappings for a single category of items that should
@@ -9,13 +11,14 @@ import java.util.NoSuchElementException;
  */
 public class AACCategory implements AACPage {
 
-	
+	AssociativeArray<String,String> contents = new AssociativeArray<String,String>();
+	String categoryName;
 	/**
 	 * Creates a new empty category with the given name
 	 * @param name the name of the category
 	 */
 	public AACCategory(String name) {
-
+		categoryName = name;
 	}
 	
 	/**
@@ -24,7 +27,12 @@ public class AACCategory implements AACPage {
 	 * @param text the text that image should speak
 	 */
 	public void addItem(String imageLoc, String text) {
-
+		try {
+			contents.set(imageLoc,text);
+		} catch (NullKeyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -33,7 +41,7 @@ public class AACCategory implements AACPage {
 	 * it should return an empty array
 	 */
 	public String[] getImageLocs() {
-		return null;
+		return new String[] {};
 	}
 
 	/**
@@ -41,7 +49,7 @@ public class AACCategory implements AACPage {
 	 * @return the name of the category
 	 */
 	public String getCategory() {
-		return "";
+		return this.categoryName;
 	}
 
 	/**
