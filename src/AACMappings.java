@@ -1,6 +1,6 @@
 import java.util.NoSuchElementException;
-import edu.grinnell.csc207.util.AssociativeArray;
-import edu.grinnell.csc207.util.NullKeyException;
+import util.AssociativeArray;
+import util.NullKeyException;
 
 /**
  * Creates a set of mappings of an AAC that has two levels,

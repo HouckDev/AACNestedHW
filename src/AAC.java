@@ -63,6 +63,29 @@ public class AAC implements ActionListener {
 		input = new Scanner(System.in);
 	}
 
+	
+	public static void main(String[] args) {
+
+		try {
+			// Set property as Kevin Dictionary
+			System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us" + ".cmu_us_kal.KevinVoiceDirectory");
+
+			// Register Engine
+			Central.registerEngineCentral("com.sun.speech.freetts" + ".jsapi.FreeTTSEngineCentral");
+			synthesizer = Central.createSynthesizer(new SynthesizerModeDesc(Locale.US));
+
+			// Allocate synthesizer
+			synthesizer.allocate();
+
+			// Resume Synthesizer
+			synthesizer.resume();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		AAC aac = new AAC("AACMappings.txt");
+	}
+
 	/**
 	 * Loads the images in the screen in a width by length grid
 	 * 
@@ -148,27 +171,6 @@ public class AAC implements ActionListener {
 		pane.requestFocusInWindow();
 	}
 
-	public static void main(String[] args) {
-
-		try {
-			// Set property as Kevin Dictionary
-			System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us" + ".cmu_us_kal.KevinVoiceDirectory");
-
-			// Register Engine
-			Central.registerEngineCentral("com.sun.speech.freetts" + ".jsapi.FreeTTSEngineCentral");
-			synthesizer = Central.createSynthesizer(new SynthesizerModeDesc(Locale.US));
-
-			// Allocate synthesizer
-			synthesizer.allocate();
-
-			// Resume Synthesizer
-			synthesizer.resume();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		AAC aac = new AAC("AACMappings.txt");
-	}
 
 	/**
 	 * Responds to the click of a button. If the button is a category or action

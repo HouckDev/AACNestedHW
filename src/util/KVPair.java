@@ -1,4 +1,4 @@
-package edu.grinnell.csc207.util;
+package util;
 
 /**
  * An easy way to store key/value pairs.  We assume that other

@@ -1,4 +1,4 @@
-package edu.grinnell.csc207.util;
+package util;
 
 import static java.lang.reflect.Array.newInstance;
 

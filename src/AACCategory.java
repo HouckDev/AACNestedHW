@@ -1,8 +1,8 @@
 import java.util.NoSuchElementException;
-import edu.grinnell.csc207.util.AssociativeArray;
-import edu.grinnell.csc207.util.KVPair;
-import edu.grinnell.csc207.util.KeyNotFoundException;
-import edu.grinnell.csc207.util.NullKeyException;
+import util.AssociativeArray;
+import util.KVPair;
+import util.KeyNotFoundException;
+import util.NullKeyException;
 
 /**
  * Represents the mappings for a single category of items that should
