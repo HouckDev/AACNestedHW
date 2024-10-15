@@ -1,6 +1,7 @@
 import java.util.NoSuchElementException;
 import edu.grinnell.csc207.util.AssociativeArray;
 import edu.grinnell.csc207.util.KVPair;
+import edu.grinnell.csc207.util.KeyNotFoundException;
 import edu.grinnell.csc207.util.NullKeyException;
 
 /**
@@ -65,7 +66,13 @@ public class AACCategory implements AACPage {
 	 * 		   category
 	 */
 	public String select(String imageLoc) {
-		return "";
+		try {
+			return contents.get(imageLoc);
+		} catch (KeyNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "";
+		}
 	}
 
 	/**
