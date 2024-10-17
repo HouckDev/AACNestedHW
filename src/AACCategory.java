@@ -3,7 +3,7 @@ import util.AssociativeArray;
 import util.KVPair;
 import util.KeyNotFoundException;
 import util.NullKeyException;
-
+import java.util.ArrayList;
 /**
  * Represents the mappings for a single category of items that should
  * be displayed
@@ -43,11 +43,17 @@ public class AACCategory implements AACPage {
 	 * it should return an empty array
 	 */
 	public String[] getImageLocs() {
-		String[] tempImageLocs = new String[contents.getPairs().length];
+		ArrayList<String> tempImageLocs = new ArrayList<String>();
 		for (int i = 0; i < contents.getPairs().length; i++) {
-			tempImageLocs[i] = contents.getPairs()[i].val;
+			if (contents.getPairs()[i]!= null) {
+				tempImageLocs.add(contents.getPairs()[i].getKey());
+			}
 		}
-		return new String[] {};
+		String[] temp = new String[tempImageLocs.toArray().length];
+		for (int i = 0; i < tempImageLocs.toArray().length; i++) {
+			temp[i] = tempImageLocs.get(i);
+		}
+		return temp;
 	}
 
 	/**
@@ -65,13 +71,11 @@ public class AACCategory implements AACPage {
 	 * @throws NoSuchElementException if the image provided is not in the current
 	 * 		   category
 	 */
-	public String select(String imageLoc) {
+	public String select(String imageLoc) throws NoSuchElementException{
 		try {
 			return contents.get(imageLoc);
 		} catch (KeyNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return "";
+			throw new NoSuchElementException();
 		}
 	}
 

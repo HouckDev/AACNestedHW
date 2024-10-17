@@ -19,14 +19,22 @@ public class KVPair<K, V> {
    */
   K key;
 
+  public K getKey() {
+    return key;
+  }
+
   /**
    * The value.
    */
-  public V val;
+  V val;
 
+  public V getVal() {
+    return val;
+  }
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
+
 
   /**
    * Create an empty key/value pair.

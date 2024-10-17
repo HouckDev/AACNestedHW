@@ -212,7 +212,12 @@ public class AAC implements ActionListener {
 			this.endIndex = Math.min(NUM_ACROSS * NUM_DOWN, this.images.length);
 		} else {
 			if (this.page.getCategory().equals("")) {
-				this.page.select(actionCommand);
+				try {
+					this.page.select(actionCommand);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				this.images = this.page.getImageLocs();
 				this.startIndex = 0;
 				this.endIndex = Math.min(NUM_ACROSS * NUM_DOWN, this.images.length);
